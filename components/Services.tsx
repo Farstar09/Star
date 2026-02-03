@@ -65,7 +65,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="section-padding bg-dark-lighter/50">
+    <section id="services" className="section-padding bg-[#1a1a1a]/50">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -100,13 +100,13 @@ const Services = () => {
             >
               {/* Icon */}
               <div className="mb-6">
-                <div className="inline-block p-4 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
-                  <service.icon className="text-4xl text-primary" />
+                <div className="inline-block p-4 bg-purple-600/10 rounded-lg group-hover:bg-purple-600/20 transition-colors duration-300">
+                  <service.icon className="text-4xl text-purple-600" />
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-2xl font-bold mb-3 group-hover:text-purple-600 transition-colors duration-300">
                 {service.title}
               </h3>
 
@@ -119,7 +119,7 @@ const Services = () => {
               <ul className="space-y-2">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-center text-sm text-gray-500">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
+                    <span className="w-1.5 h-1.5 bg-purple-600 rounded-full mr-2"></span>
                     {feature}
                   </li>
                 ))}

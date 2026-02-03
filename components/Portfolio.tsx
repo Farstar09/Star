@@ -125,8 +125,8 @@ const Portfolio = () => {
                 onClick={() => setActiveFilter(category)}
                 className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
                   activeFilter === category
-                    ? 'bg-primary text-white shadow-glow'
-                    : 'bg-dark-card text-gray-400 hover:text-primary border border-gray-800 hover:border-primary'
+                    ? 'bg-purple-600 text-white shadow-[0_0_20px_rgba(147,51,234,0.5)]'
+                    : 'bg-[#111111] text-gray-400 hover:text-purple-600 border border-gray-800 hover:border-purple-600'
                 }`}
               >
                 {category}
@@ -160,11 +160,11 @@ const Portfolio = () => {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111] to-transparent opacity-60"></div>
                 </div>
 
                 {/* Project Info */}
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-purple-600 transition-colors duration-300">
                   {project.title}
                 </h3>
                 <p className="text-gray-400 text-sm mb-4 leading-relaxed">
@@ -176,7 +176,7 @@ const Portfolio = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                      className="px-3 py-1 bg-purple-600/10 text-purple-600 text-xs rounded-full"
                     >
                       {tag}
                     </span>
@@ -187,14 +187,14 @@ const Portfolio = () => {
                 <div className="flex gap-4">
                   <a
                     href={project.github}
-                    className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors duration-300"
+                    className="flex items-center gap-2 text-gray-400 hover:text-purple-600 transition-colors duration-300"
                   >
                     <FaGithub />
                     <span className="text-sm">Code</span>
                   </a>
                   <a
                     href={project.demo}
-                    className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors duration-300"
+                    className="flex items-center gap-2 text-gray-400 hover:text-purple-600 transition-colors duration-300"
                   >
                     <FaExternalLinkAlt />
                     <span className="text-sm">Demo</span>

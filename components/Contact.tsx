@@ -90,15 +90,15 @@ const Contact = () => {
             <div className="space-y-4 mb-8">
               {contactInfo.map((info) => (
                 <div key={info.label} className="flex items-center gap-4 card">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <info.icon className="text-2xl text-primary" />
+                  <div className="p-3 bg-purple-600/10 rounded-lg">
+                    <info.icon className="text-2xl text-purple-600" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">{info.label}</p>
                     {info.href ? (
                       <a
                         href={info.href}
-                        className="text-gray-300 hover:text-primary transition-colors duration-300"
+                        className="text-gray-300 hover:text-purple-600 transition-colors duration-300"
                       >
                         {info.value}
                       </a>
@@ -122,7 +122,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, y: -5 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`p-4 bg-dark-card border border-gray-800 rounded-lg text-gray-400 transition-all duration-300 ${social.color} hover:border-primary`}
+                    className={`p-4 bg-[#111111] border border-gray-800 rounded-lg text-gray-400 transition-all duration-300 ${social.color} hover:border-purple-600`}
                     aria-label={social.label}
                   >
                     <social.icon className="text-2xl" />
@@ -153,7 +153,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-lighter border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-primary transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-colors duration-300"
                     placeholder="John Doe"
                   />
                 </div>
@@ -170,7 +170,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-lighter border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-primary transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-colors duration-300"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -187,7 +187,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-lighter border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-primary transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-colors duration-300"
                     placeholder="Project Inquiry"
                   />
                 </div>
@@ -204,7 +204,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-dark-lighter border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-primary transition-colors duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-colors duration-300 resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>

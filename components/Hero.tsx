@@ -16,7 +16,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="text-primary text-lg md:text-xl font-semibold">
+            <span className="text-purple-600 text-lg md:text-xl font-semibold">
               Welcome to my digital universe
             </span>
           </motion.div>
@@ -48,9 +48,9 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Crafting exceptional <span className="text-primary font-semibold">Discord Bots</span>,{' '}
-            <span className="text-primary font-semibold">Minecraft Plugins</span>, and{' '}
-            <span className="text-primary font-semibold">Web Applications</span> that bring ideas to life.
+            Crafting exceptional <span className="text-purple-600 font-semibold">Discord Bots</span>,{' '}
+            <span className="text-purple-600 font-semibold">Minecraft Plugins</span>, and{' '}
+            <span className="text-purple-600 font-semibold">Web Applications</span> that bring ideas to life.
             Specializing in eSports solutions and innovative digital experiences.
           </motion.p>
 
@@ -93,7 +93,7 @@ const Hero = () => {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <FaArrowDown className="text-primary text-2xl" />
+              <FaArrowDown className="text-purple-600 text-2xl" />
             </motion.div>
           </motion.div>
         </div>

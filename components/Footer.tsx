@@ -30,7 +30,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-dark-card border-t border-gray-800 mt-20">
+    <footer className="bg-[#111111] border-t border-gray-800 mt-20">
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
@@ -56,7 +56,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, y: -5 }}
                   whileTap={{ scale: 0.9 }}
-                  className="text-gray-400 hover:text-primary transition-colors duration-300 text-2xl"
+                  className="text-gray-400 hover:text-purple-600 transition-colors duration-300 text-2xl"
                   aria-label={social.label}
                 >
                   <social.icon />
@@ -68,13 +68,13 @@ const Footer = () => {
           {/* Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-lg font-semibold mb-4 text-primary">{title}</h4>
+              <h4 className="text-lg font-semibold mb-4 text-purple-600">{title}</h4>
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-primary transition-colors duration-300"
+                      className="text-gray-400 hover:text-purple-600 transition-colors duration-300"
                     >
                       {link.name}
                     </Link>
@@ -92,10 +92,10 @@ const Footer = () => {
               © {currentYear} Star. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors duration-300">
+              <Link href="#" className="text-gray-400 hover:text-purple-600 transition-colors duration-300">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-primary transition-colors duration-300">
+              <Link href="#" className="text-gray-400 hover:text-purple-600 transition-colors duration-300">
                 Terms of Service
               </Link>
             </div>

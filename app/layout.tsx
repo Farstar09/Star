@@ -34,9 +34,9 @@ export default function RootLayout({
         <div className="relative min-h-screen">
           {/* Background gradient effect */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 -left-40 w-80 h-80 bg-primary/20 rounded-full filter blur-[128px] animate-pulse-glow"></div>
-            <div className="absolute top-60 right-0 w-96 h-96 bg-primary/10 rounded-full filter blur-[128px] animate-pulse-glow animation-delay-400"></div>
-            <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-primary/10 rounded-full filter blur-[128px] animate-pulse-glow animation-delay-200"></div>
+            <div className="absolute top-0 -left-40 w-80 h-80 bg-purple-600/20 rounded-full filter blur-[128px] animate-pulse-glow"></div>
+            <div className="absolute top-60 right-0 w-96 h-96 bg-purple-600/10 rounded-full filter blur-[128px] animate-pulse-glow animation-delay-400"></div>
+            <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-purple-600/10 rounded-full filter blur-[128px] animate-pulse-glow animation-delay-200"></div>
           </div>
           
           <div className="relative z-10">

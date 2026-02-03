@@ -1,18 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   :root {
     --glow-color: 147, 51, 234;
   }
 
-  * {
-    @apply border-gray-800;
-  }
-
   body {
-    @apply bg-dark text-gray-100;
+    @apply bg-[#0a0a0a] text-gray-100;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
@@ -28,15 +22,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-dark-lighter;
+    background: #1a1a1a;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary rounded-full;
+    background: #9333ea;
+    border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-light;
+    background: #a855f7;
   }
 }
 
@@ -55,23 +50,32 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-light to-primary-glow bg-clip-text text-transparent;
+    background: linear-gradient(to right, #a855f7, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .card {
-    @apply bg-dark-card border border-gray-800 rounded-xl p-6 transition-all duration-300;
+    @apply bg-[#111111] border border-gray-800 rounded-xl p-6 transition-all duration-300;
   }
 
   .card:hover {
-    @apply border-primary shadow-glow;
+    border-color: #9333ea;
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
   }
 
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-glow hover:shadow-glow-lg;
+    @apply bg-[#9333ea] hover:bg-[#7e22ce] text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300;
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(147, 51, 234, 0.6);
   }
 
   .btn-secondary {
-    @apply bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300;
+    @apply bg-transparent border-2 border-[#9333ea] text-[#9333ea] hover:bg-[#9333ea] hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300;
   }
 
   .section-padding {

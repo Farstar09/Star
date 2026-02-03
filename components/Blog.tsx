@@ -78,7 +78,7 @@ const Blog = () => {
   );
 
   return (
-    <section id="blog" className="section-padding bg-dark-lighter/50">
+    <section id="blog" className="section-padding bg-[#1a1a1a]/50">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -103,7 +103,7 @@ const Blog = () => {
                 placeholder="Search posts by title, content, or tags..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 pl-14 bg-dark-card border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-primary transition-colors duration-300"
+                className="w-full px-6 py-4 pl-14 bg-[#111111] border border-gray-800 rounded-lg text-gray-300 placeholder-gray-500 focus:outline-none focus:border-purple-600 transition-colors duration-300"
               />
               <FaSearch className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500" />
             </div>
@@ -131,14 +131,14 @@ const Blog = () => {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 bg-primary/90 text-white text-xs font-semibold rounded-full">
+                  <span className="px-3 py-1 bg-purple-600/90 text-white text-xs font-semibold rounded-full">
                     {post.category}
                   </span>
                 </div>
               </div>
 
               {/* Post Info */}
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+              <h3 className="text-xl font-bold mb-3 group-hover:text-purple-600 transition-colors duration-300 line-clamp-2">
                 {post.title}
               </h3>
               
@@ -160,7 +160,7 @@ const Blog = () => {
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary text-xs rounded"
+                    className="flex items-center gap-1 px-2 py-1 bg-purple-600/10 text-purple-600 text-xs rounded"
                   >
                     <FaTag className="text-[10px]" />
                     {tag}

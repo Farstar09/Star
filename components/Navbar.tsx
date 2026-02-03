@@ -31,7 +31,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-dark/95 backdrop-blur-md shadow-lg shadow-primary/10' : 'bg-transparent'
+        isScrolled ? 'bg-[#0a0a0a]/95 backdrop-blur-md shadow-lg shadow-purple-600/10' : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
@@ -52,10 +52,10 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-primary transition-colors duration-300 relative group"
+                className="text-gray-300 hover:text-purple-600 transition-colors duration-300 relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
             <Link href="#contact">
@@ -72,7 +72,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-2xl text-primary z-50"
+            className="md:hidden text-2xl text-purple-600 z-50"
           >
             {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -87,7 +87,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-dark-card md:hidden z-40"
+            className="fixed inset-0 bg-[#111111] md:hidden z-40"
           >
             <div className="flex flex-col items-center justify-center h-full space-y-8">
               {navItems.map((item, index) => (
@@ -100,7 +100,7 @@ const Navbar = () => {
                   <Link
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-2xl text-gray-300 hover:text-primary transition-colors duration-300"
+                    className="text-2xl text-gray-300 hover:text-purple-600 transition-colors duration-300"
                   >
                     {item.name}
                   </Link>
