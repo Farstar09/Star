@@ -289,7 +289,7 @@ export default function TermsOfService() {
               </p>
               <div className="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
                 <p className="text-gray-300">
-                  <strong className="text-purple-600">Email:</strong> legal@star-dev.com<br />
+                  <strong className="text-purple-600">Email:</strong> star@builtbystar.com<br />
                   <strong className="text-purple-600">Website:</strong> <Link href="/#contact" className="text-purple-500 hover:text-purple-400">Contact Form</Link>
                 </p>
               </div>
