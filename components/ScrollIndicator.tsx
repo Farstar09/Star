@@ -4,27 +4,38 @@ import { motion } from 'framer-motion';
 import { FaArrowDown } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
+const MIN_SCROLL_THRESHOLD = 100; // Minimum scroll distance to show indicator
+const BOTTOM_OFFSET = 200; // Distance from bottom to hide indicator
+
 const ScrollIndicator = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
     const handleScroll = () => {
-      // Show indicator when user has scrolled down from the top
-      // Hide when near the bottom of the page
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // Show if scrolled more than 100px and not near the bottom (within 200px of bottom)
-      const shouldShow = scrollPosition > 100 && (scrollPosition + windowHeight < documentHeight - 200);
-      setIsVisible(shouldShow);
+      // Debounce scroll handler for better performance
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Show if scrolled more than threshold and not near the bottom
+        const shouldShow = scrollPosition > MIN_SCROLL_THRESHOLD && 
+                          (scrollPosition + windowHeight < documentHeight - BOTTOM_OFFSET);
+        setIsVisible(shouldShow);
+      }, 50); // 50ms debounce delay
     };
 
     // Initial check
     handleScroll();
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const scrollToNext = () => {
