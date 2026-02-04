@@ -92,10 +92,10 @@ const Footer = () => {
               © {currentYear} Star. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link href="#" className="text-gray-400 hover:text-purple-600 transition-colors duration-300">
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-purple-600 transition-colors duration-300">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-purple-600 transition-colors duration-300">
+              <Link href="/terms-of-service" className="text-gray-400 hover:text-purple-600 transition-colors duration-300">
                 Terms of Service
               </Link>
             </div>
