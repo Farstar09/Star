@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import Image from 'next/image';
 
 const Portfolio = () => {
@@ -13,83 +13,68 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: 'Advanced Moderation Bot',
-      category: 'Discord Bots',
-      description: 'Feature-rich Discord bot with advanced moderation, logging, and auto-moderation capabilities.',
-      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Discord+Bot',
-      tags: ['Discord.js', 'Node.js', 'MongoDB'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      id: 2,
-      title: 'Custom Skyblock Plugin',
-      category: 'Minecraft Plugins',
-      description: 'Fully customizable Skyblock plugin with custom islands, challenges, and economy system.',
-      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Minecraft+Plugin',
-      tags: ['Java', 'Spigot', 'MySQL'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      id: 3,
-      title: 'Tournament Platform',
-      category: 'eSports',
-      description: 'Complete tournament management system with bracket generation, team management, and live scores.',
-      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Tournament+Platform',
-      tags: ['Next.js', 'React', 'PostgreSQL'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      id: 4,
       title: 'Gaming Community Hub',
       category: 'Websites',
       description: 'Modern community website with forums, events, and integrated Discord authentication.',
       image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Community+Hub',
       tags: ['React', 'Tailwind', 'Firebase'],
-      github: '#',
-      demo: '#',
     },
     {
-      id: 5,
-      title: 'Music & Games Bot',
-      category: 'Discord Bots',
-      description: 'Multi-purpose bot featuring high-quality music streaming and interactive mini-games.',
-      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Music+Bot',
-      tags: ['Discord.js', 'Lavalink', 'Redis'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      id: 6,
-      title: 'Faction Warfare Plugin',
-      category: 'Minecraft Plugins',
-      description: 'Advanced faction system with territory control, wars, and custom economy.',
-      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Faction+Plugin',
-      tags: ['Java', 'Paper', 'SQLite'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      id: 7,
-      title: 'Team Management System',
-      category: 'eSports',
-      description: 'Comprehensive platform for managing eSports teams, rosters, and statistics.',
-      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Team+Management',
-      tags: ['Next.js', 'TypeScript', 'Prisma'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      id: 8,
+      id: 2,
       title: 'Portfolio Showcase',
       category: 'Websites',
       description: 'Stunning portfolio website with animations, dark theme, and responsive design.',
       image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Portfolio+Site',
       tags: ['Next.js', 'Framer Motion', 'Tailwind'],
-      github: '#',
-      demo: '#',
+    },
+    {
+      id: 3,
+      title: 'eSports Management Platform',
+      category: 'eSports',
+      description: 'Comprehensive platform for managing eSports teams, rosters, and statistics.',
+      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Team+Management',
+      tags: ['Next.js', 'TypeScript', 'Prisma'],
+      demo: 'https://rosoesports.com',
+    },
+    {
+      id: 4,
+      title: 'Tournament Platform',
+      category: 'eSports',
+      description: 'Complete tournament management system with bracket generation, team management, and live scores.',
+      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Tournament+Platform',
+      tags: ['Next.js', 'React', 'PostgreSQL'],
+    },
+    {
+      id: 5,
+      title: 'Advanced Moderation Bot',
+      category: 'Discord Bots',
+      description: 'Feature-rich Discord bot with advanced moderation, logging, and auto-moderation capabilities.',
+      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Discord+Bot',
+      tags: ['Discord.js', 'Node.js', 'MongoDB'],
+    },
+    {
+      id: 6,
+      title: 'Music & Games Bot',
+      category: 'Discord Bots',
+      description: 'Multi-purpose bot featuring high-quality music streaming and interactive mini-games.',
+      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Music+Bot',
+      tags: ['Discord.js', 'Lavalink', 'Redis'],
+    },
+    {
+      id: 7,
+      title: 'Custom Skyblock Plugin',
+      category: 'Minecraft Plugins',
+      description: 'Fully customizable Skyblock plugin with custom islands, challenges, and economy system.',
+      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Minecraft+Plugin',
+      tags: ['Java', 'Spigot', 'MySQL'],
+    },
+    {
+      id: 8,
+      title: 'Faction Warfare Plugin',
+      category: 'Minecraft Plugins',
+      description: 'Advanced faction system with territory control, wars, and custom economy.',
+      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Faction+Plugin',
+      tags: ['Java', 'Paper', 'SQLite'],
     },
   ];
 
@@ -184,22 +169,19 @@ const Portfolio = () => {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-4">
-                  <a
-                    href={project.github}
-                    className="flex items-center gap-2 text-gray-400 hover:text-purple-600 transition-colors duration-300"
-                  >
-                    <FaGithub />
-                    <span className="text-sm">Code</span>
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="flex items-center gap-2 text-gray-400 hover:text-purple-600 transition-colors duration-300"
-                  >
-                    <FaExternalLinkAlt />
-                    <span className="text-sm">Demo</span>
-                  </a>
-                </div>
+                {project.demo && (
+                  <div className="flex gap-4">
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-400 hover:text-purple-600 transition-colors duration-300"
+                    >
+                      <FaExternalLinkAlt />
+                      <span className="text-sm">View Live</span>
+                    </a>
+                  </div>
+                )}
               </motion.div>
             ))}
           </AnimatePresence>
