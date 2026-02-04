@@ -99,4 +99,20 @@
   .animation-delay-600 {
     animation-delay: 600ms;
   }
+
+  @keyframes logo-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+  }
+
+  .logo-hover:hover {
+    animation: logo-wiggle 0.5s ease-in-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-hover:hover {
+      animation: none;
+    }
+  }
 }

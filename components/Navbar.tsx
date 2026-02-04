@@ -19,11 +19,11 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '#home' },
+    { name: 'What I Do', href: '#services' },
+    { name: 'Work', href: '#portfolio' },
+    { name: 'Thoughts', href: '#blog' },
+    { name: 'Connect', href: '#contact' },
   ];
 
   return (
@@ -40,31 +40,43 @@ const Navbar = () => {
           <Link href="#home" className="flex items-center space-x-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold gradient-text"
+              transition={{ duration: 0.5 }}
+              className="text-2xl font-bold logo-hover"
             >
-              ★ Star
+              <span className="gradient-text">✦ Star</span>
             </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          <div className="hidden md:flex items-center space-x-1">
+            {navItems.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-purple-600 transition-colors duration-300 relative group"
+                className="relative px-4 py-2 text-gray-300 hover:text-white transition-all duration-300 group"
               >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative z-10"
+                >
+                  {item.name}
+                </motion.span>
+                <motion.div
+                  className="absolute inset-0 bg-purple-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  whileHover={{ scale: 1.05 }}
+                />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-3/4"></span>
               </Link>
             ))}
-            <Link href="#contact">
+            <Link href="#contact" className="ml-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-primary"
+                className="btn-primary relative overflow-hidden border-2 border-purple-600 hover:border-purple-400 transition-all duration-300"
               >
-                Hire Me
+                <span className="relative z-10">Let's Talk</span>
               </motion.button>
             </Link>
           </div>
@@ -112,7 +124,7 @@ const Navbar = () => {
                 transition={{ delay: navItems.length * 0.1 }}
               >
                 <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  <button className="btn-primary">Hire Me</button>
+                  <button className="btn-primary">Let's Talk</button>
                 </Link>
               </motion.div>
             </div>

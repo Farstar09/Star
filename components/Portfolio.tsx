@@ -96,6 +96,11 @@ const Portfolio = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             My <span className="gradient-text">Portfolio</span>
           </h2>
+          <div className="mb-6">
+            <span className="inline-block px-4 py-2 bg-purple-600/20 border border-purple-600/50 text-purple-400 rounded-full text-sm font-semibold">
+              🚧 Under Development
+            </span>
+          </div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
             A showcase of my recent projects and contributions
           </p>
