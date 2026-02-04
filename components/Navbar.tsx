@@ -39,9 +39,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="#home" className="flex items-center space-x-2">
             <motion.div
-              whileHover={{ scale: 1.05, rotate: [0, -5, 5, 0] }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl font-bold"
+              className="text-2xl font-bold logo-hover"
             >
               <span className="gradient-text">✦ Star</span>
             </motion.div>
@@ -72,17 +72,11 @@ const Navbar = () => {
             ))}
             <Link href="#contact" className="ml-4">
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(147,51,234,0.5)' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-primary relative overflow-hidden"
+                className="btn-primary relative overflow-hidden border-2 border-purple-600 hover:border-purple-400 transition-all duration-300"
               >
                 <span className="relative z-10">Let's Talk</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 hover:opacity-100 transition-opacity"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
               </motion.button>
             </Link>
           </div>
