@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaTwitter, FaDiscord, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaTwitter, FaDiscord, FaEnvelope, FaMapMarkerAlt, FaTimes } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +13,7 @@ const Contact = () => {
   });
 
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isDiscordPanelOpen, setIsDiscordPanelOpen] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -35,8 +36,8 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: 'Email',
-      value: 'hello@builtbystar.com',
-      href: 'mailto:hello@builtbystar.com',
+      value: 'star@builtbystar.com',
+      href: 'mailto:star@builtbystar.com',
     },
     {
       icon: FaMapMarkerAlt,
@@ -47,10 +48,8 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com', label: 'GitHub', color: 'hover:text-gray-300' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter', color: 'hover:text-blue-400' },
-    { icon: FaDiscord, href: 'https://discord.com', label: 'Discord', color: 'hover:text-indigo-400' },
-    { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn', color: 'hover:text-blue-600' },
+    { icon: FaTwitter, href: 'https://x.com/St4rishim', label: 'Twitter', color: 'hover:text-blue-400' },
+    { icon: FaDiscord, href: '#', label: 'Discord', color: 'hover:text-indigo-400', isDiscord: true },
   ];
 
   return (
@@ -118,11 +117,17 @@ const Contact = () => {
                   <motion.a
                     key={social.label}
                     href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={social.isDiscord ? undefined : "_blank"}
+                    rel={social.isDiscord ? undefined : "noopener noreferrer"}
+                    onClick={(e) => {
+                      if (social.isDiscord) {
+                        e.preventDefault();
+                        setIsDiscordPanelOpen(true);
+                      }
+                    }}
                     whileHover={{ scale: 1.2, y: -5 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`p-4 bg-[#111111] border border-gray-800 rounded-lg text-gray-400 transition-all duration-300 ${social.color} hover:border-purple-600`}
+                    className={`p-4 bg-[#111111] border border-gray-800 rounded-lg text-gray-400 transition-all duration-300 ${social.color} hover:border-purple-600 cursor-pointer`}
                     aria-label={social.label}
                   >
                     <social.icon className="text-2xl" />
@@ -234,6 +239,53 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Discord Contact Panel */}
+      {isDiscordPanelOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setIsDiscordPanelOpen(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="card max-w-md w-full relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsDiscordPanelOpen(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300"
+              aria-label="Close"
+            >
+              <FaTimes className="text-2xl" />
+            </button>
+            
+            <div className="text-center">
+              <div className="mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-600/10 rounded-full mb-4">
+                  <FaDiscord className="text-4xl text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">Discord Contact</h3>
+                <p className="text-gray-400">Connect with me on Discord</p>
+              </div>
+              
+              <div className="bg-[#1a1a1a] border border-gray-800 rounded-lg p-6 mb-6">
+                <p className="text-sm text-gray-500 mb-2">Discord Username</p>
+                <p className="text-2xl font-bold text-purple-600">st4r.1</p>
+              </div>
+              
+              <p className="text-gray-400 text-sm">
+                Copy the username above and add me on Discord to get in touch!
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   );
 };
