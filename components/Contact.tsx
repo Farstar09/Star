@@ -49,7 +49,7 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: FaTwitter, href: 'https://x.com/St4rishim', label: 'Twitter', color: 'hover:text-blue-400' },
+    { icon: FaTwitter, href: 'https://x.com/St4rishim', label: 'X (Twitter)', color: 'hover:text-blue-400' },
     { icon: FaDiscord, href: '#', label: 'Discord', color: 'hover:text-indigo-400', isDiscord: true },
   ];
 

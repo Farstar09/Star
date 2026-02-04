@@ -11,7 +11,7 @@ const Footer = () => {
   const [isDiscordPanelOpen, setIsDiscordPanelOpen] = useState(false);
 
   const socialLinks = [
-    { icon: FaTwitter, href: 'https://x.com/St4rishim', label: 'Twitter' },
+    { icon: FaTwitter, href: 'https://x.com/St4rishim', label: 'X (Twitter)' },
     { icon: FaDiscord, href: '#', label: 'Discord', isDiscord: true },
   ];
 

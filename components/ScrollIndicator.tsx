@@ -9,13 +9,29 @@ const BOTTOM_OFFSET = 200; // Distance from bottom to hide indicator
 
 const ScrollIndicator = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout | undefined;
     
     const handleScroll = () => {
       // Debounce scroll handler for better performance
-      clearTimeout(timeoutId);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
       timeoutId = setTimeout(() => {
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
@@ -34,7 +50,9 @@ const ScrollIndicator = () => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timeoutId);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
     };
   }, []);
 
@@ -61,8 +79,8 @@ const ScrollIndicator = () => {
     >
       <span className="text-gray-500 text-sm mb-2">Scroll to explore</span>
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
+        animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
+        transition={prefersReducedMotion ? {} : { duration: 1.5, repeat: Infinity }}
         className="p-3 bg-purple-600/10 rounded-full border border-purple-600/30 hover:bg-purple-600/20 transition-colors duration-300"
       >
         <FaArrowDown className="text-purple-600 text-xl" />

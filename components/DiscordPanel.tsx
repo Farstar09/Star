@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaDiscord, FaTimes } from 'react-icons/fa';
+import { useEffect } from 'react';
 
 interface DiscordPanelProps {
   isOpen: boolean;
@@ -9,6 +10,17 @@ interface DiscordPanelProps {
 }
 
 const DiscordPanel = ({ isOpen, onClose }: DiscordPanelProps) => {
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
