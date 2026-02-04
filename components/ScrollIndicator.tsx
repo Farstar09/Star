@@ -63,11 +63,18 @@ const ScrollIndicator = () => {
     
     window.scrollTo({
       top: nextPosition,
-      behavior: 'smooth'
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
     });
   };
 
   if (!isVisible) return null;
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToNext();
+    }
+  };
 
   return (
     <motion.div
@@ -76,6 +83,10 @@ const ScrollIndicator = () => {
       exit={{ opacity: 0, y: 20 }}
       className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 flex flex-col items-center cursor-pointer"
       onClick={scrollToNext}
+      onKeyDown={handleKeyPress}
+      tabIndex={0}
+      role="button"
+      aria-label="Scroll to next section"
     >
       <span className="text-gray-500 text-sm mb-2">Scroll to explore</span>
       <motion.div
