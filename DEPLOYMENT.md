@@ -37,7 +37,7 @@ The GitHub Pages deployment uses:
 - **Workflow**: `.github/workflows/deploy.yml`
 - **Base Path**: `/Star` (configured in `next.config.js`)
 - **Output**: Static export to `out/` directory
-- **Node Version**: 18.x
+- **Node Version**: 20.x
 
 ### Updating Content
 
