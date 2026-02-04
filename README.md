@@ -103,7 +103,21 @@ Replace placeholder images in the Portfolio and Blog sections with your actual p
 
 ## 🌐 Deployment
 
-### Vercel (Recommended)
+### GitHub Pages (Current Setup)
+This site is configured to deploy automatically to GitHub Pages:
+
+1. Push your code to the `main` branch
+2. GitHub Actions will automatically build and deploy the site
+3. Your site will be live at `https://farstar09.github.io/Star`
+
+The deployment workflow is defined in `.github/workflows/deploy.yml` and runs automatically on every push to `main`.
+
+**Note**: If this is your first deployment, you need to configure GitHub Pages settings:
+1. Go to your repository Settings → Pages
+2. Under "Build and deployment" → "Source", select "GitHub Actions"
+3. The workflow will deploy automatically on the next push
+
+### Vercel (Alternative)
 The easiest way to deploy is using [Vercel](https://vercel.com):
 
 1. Push your code to GitHub

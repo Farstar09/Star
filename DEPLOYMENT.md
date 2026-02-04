@@ -2,6 +2,73 @@
 
 This guide will help you deploy the Star developer website to production.
 
+## GitHub Pages (Current Setup)
+
+The website is configured to deploy automatically to GitHub Pages at `https://farstar09.github.io/Star`.
+
+### How It Works
+
+1. **Automatic Deployment**: Every push to the `main` branch triggers a GitHub Actions workflow
+2. **Build Process**: The workflow builds the Next.js app as a static export
+3. **Deployment**: The static files are deployed to GitHub Pages
+
+### First-Time Setup
+
+If you haven't deployed to GitHub Pages yet, follow these steps:
+
+1. **Enable GitHub Pages**
+   - Go to your repository on GitHub
+   - Click "Settings" → "Pages" (in the left sidebar)
+   - Under "Build and deployment" → "Source", select "GitHub Actions"
+   - Click "Save"
+
+2. **Trigger Deployment**
+   - Make a commit to the `main` branch (or merge a PR)
+   - The workflow will run automatically
+   - Check the "Actions" tab to monitor the deployment progress
+
+3. **Access Your Site**
+   - Once deployed, visit `https://farstar09.github.io/Star`
+   - Note: The first deployment may take a few minutes
+
+### Configuration Details
+
+The GitHub Pages deployment uses:
+- **Workflow**: `.github/workflows/deploy.yml`
+- **Base Path**: `/Star` (configured in `next.config.js`)
+- **Output**: Static export to `out/` directory
+- **Node Version**: 18.x
+
+### Updating Content
+
+To update the live site:
+1. Make your changes locally
+2. Commit and push to `main` branch
+3. The workflow will automatically rebuild and redeploy
+
+### Monitoring Deployments
+
+- View workflow runs in the "Actions" tab
+- Check deployment status in Settings → Pages
+- See deployment history and URLs
+
+### Troubleshooting
+
+**Site shows 404**
+- Verify GitHub Pages is enabled in repository Settings → Pages
+- Ensure "Source" is set to "GitHub Actions"
+- Check that the workflow completed successfully in the Actions tab
+
+**Build Fails**
+- Check the Actions tab for error logs
+- Verify `npm run build` works locally
+- Ensure all dependencies are listed in `package.json`
+
+**Styles/Assets Not Loading**
+- The site uses `/Star` as the base path
+- All asset paths are automatically prefixed by Next.js
+- Check browser console for 404 errors
+
 ## Quick Deploy to Vercel (Recommended)
 
 Vercel is the easiest and fastest way to deploy Next.js applications.
