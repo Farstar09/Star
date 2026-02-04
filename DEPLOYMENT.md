@@ -2,9 +2,9 @@
 
 This guide will help you deploy the Star developer website to production.
 
-## GitHub Pages (Current Setup)
+## GitHub Pages with Custom Domain (Current Setup)
 
-The website is configured to deploy automatically to GitHub Pages at `https://farstar09.github.io/Star`.
+The website is configured to deploy automatically to GitHub Pages and is accessible at `https://www.builtbystar.com`.
 
 ### How It Works
 
@@ -28,16 +28,36 @@ If you haven't deployed to GitHub Pages yet, follow these steps:
    - Check the "Actions" tab to monitor the deployment progress
 
 3. **Access Your Site**
-   - Once deployed, visit `https://farstar09.github.io/Star`
+   - Once deployed, visit `https://www.builtbystar.com`
    - Note: The first deployment may take a few minutes
+   - Make sure your custom domain is properly configured in repository Settings → Pages
+
+### Custom Domain Configuration
+
+To use a custom domain with GitHub Pages:
+
+1. **Add Custom Domain in GitHub**
+   - Go to repository Settings → Pages
+   - Under "Custom domain", enter `www.builtbystar.com`
+   - Save the configuration
+   - GitHub will create a CNAME file in your repository
+
+2. **Configure DNS Records**
+   - Add a CNAME record for `www` pointing to `farstar09.github.io`
+   - Wait for DNS propagation (can take up to 48 hours)
+
+3. **Enable HTTPS**
+   - Check "Enforce HTTPS" in Settings → Pages
+   - Wait for GitHub to provision an SSL certificate
 
 ### Configuration Details
 
 The GitHub Pages deployment uses:
 - **Workflow**: `.github/workflows/deploy.yml`
-- **Base Path**: `/Star` (configured in `next.config.js`)
+- **Base Path**: None (using custom domain)
 - **Output**: Static export to `out/` directory
 - **Node Version**: 20.x
+- **Custom Domain**: www.builtbystar.com
 
 ### Updating Content
 
@@ -65,9 +85,14 @@ To update the live site:
 - Ensure all dependencies are listed in `package.json`
 
 **Styles/Assets Not Loading**
-- The site uses `/Star` as the base path
-- All asset paths are automatically prefixed by Next.js
+- All assets should be loaded from the root path
 - Check browser console for 404 errors
+- Verify custom domain DNS is properly configured
+
+**White Page Issue**
+- If you see a white page, check that `basePath` is not set in `next.config.js` when using a custom domain
+- For GitHub Pages subdirectory (`username.github.io/repo`), you need `basePath: '/repo'`
+- For custom domains, remove the basePath or set it to empty string
 
 ## Quick Deploy to Vercel (Recommended)
 
