@@ -1,17 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { FaGithub, FaTwitter, FaDiscord, FaLinkedin } from 'react-icons/fa';
+import { FaTwitter, FaDiscord } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import DiscordPanel from './DiscordPanel';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [isDiscordPanelOpen, setIsDiscordPanelOpen] = useState(false);
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: FaDiscord, href: 'https://discord.com', label: 'Discord' },
-    { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: FaTwitter, href: 'https://x.com/St4rishim', label: 'X (Twitter)' },
+    { icon: FaDiscord, href: '#', label: 'Discord', isDiscord: true },
   ];
 
   const footerLinks = {
@@ -52,11 +53,17 @@ const Footer = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={social.isDiscord ? undefined : "_blank"}
+                  rel={social.isDiscord ? undefined : "noopener noreferrer"}
+                  onClick={(e) => {
+                    if (social.isDiscord) {
+                      e.preventDefault();
+                      setIsDiscordPanelOpen(true);
+                    }
+                  }}
                   whileHover={{ scale: 1.2, y: -5 }}
                   whileTap={{ scale: 0.9 }}
-                  className="text-gray-400 hover:text-purple-600 transition-colors duration-300 text-2xl"
+                  className="text-gray-400 hover:text-purple-600 transition-colors duration-300 text-2xl cursor-pointer"
                   aria-label={social.label}
                 >
                   <social.icon />
@@ -102,6 +109,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Discord Contact Panel */}
+      <DiscordPanel isOpen={isDiscordPanelOpen} onClose={() => setIsDiscordPanelOpen(false)} />
     </footer>
   );
 };

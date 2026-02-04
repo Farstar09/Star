@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaTwitter, FaDiscord, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaTwitter, FaDiscord, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import DiscordPanel from './DiscordPanel';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const Contact = () => {
   });
 
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isDiscordPanelOpen, setIsDiscordPanelOpen] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -35,8 +37,8 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: 'Email',
-      value: 'hello@builtbystar.com',
-      href: 'mailto:hello@builtbystar.com',
+      value: 'star@builtbystar.com',
+      href: 'mailto:star@builtbystar.com',
     },
     {
       icon: FaMapMarkerAlt,
@@ -47,10 +49,8 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com', label: 'GitHub', color: 'hover:text-gray-300' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter', color: 'hover:text-blue-400' },
-    { icon: FaDiscord, href: 'https://discord.com', label: 'Discord', color: 'hover:text-indigo-400' },
-    { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn', color: 'hover:text-blue-600' },
+    { icon: FaTwitter, href: 'https://x.com/St4rishim', label: 'X (Twitter)', color: 'hover:text-blue-400' },
+    { icon: FaDiscord, href: '#', label: 'Discord', color: 'hover:text-indigo-400', isDiscord: true },
   ];
 
   return (
@@ -118,11 +118,17 @@ const Contact = () => {
                   <motion.a
                     key={social.label}
                     href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={social.isDiscord ? undefined : "_blank"}
+                    rel={social.isDiscord ? undefined : "noopener noreferrer"}
+                    onClick={(e) => {
+                      if (social.isDiscord) {
+                        e.preventDefault();
+                        setIsDiscordPanelOpen(true);
+                      }
+                    }}
                     whileHover={{ scale: 1.2, y: -5 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`p-4 bg-[#111111] border border-gray-800 rounded-lg text-gray-400 transition-all duration-300 ${social.color} hover:border-purple-600`}
+                    className={`p-4 bg-[#111111] border border-gray-800 rounded-lg text-gray-400 transition-all duration-300 ${social.color} hover:border-purple-600 cursor-pointer`}
                     aria-label={social.label}
                   >
                     <social.icon className="text-2xl" />
@@ -234,6 +240,9 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Discord Contact Panel */}
+      <DiscordPanel isOpen={isDiscordPanelOpen} onClose={() => setIsDiscordPanelOpen(false)} />
     </section>
   );
 };
