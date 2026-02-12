@@ -29,10 +29,10 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: 'eSports Management Platform',
+      title: 'ROSO eSports - Official Website',
       category: 'eSports',
-      description: 'Comprehensive platform for managing eSports teams, rosters, and statistics.',
-      image: 'https://placehold.co/600x400/1a1a1a/9333ea?text=Team+Management',
+      description: 'Professional eSports organization website featuring team management, tournament systems, player rosters, and performance analytics.',
+      image: '/images/rosoesports-preview.svg',
       tags: ['Next.js', 'TypeScript', 'Prisma'],
       demo: 'https://rosoesports.com',
     },
