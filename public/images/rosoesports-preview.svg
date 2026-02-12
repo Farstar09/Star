@@ -1,0 +1,64 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333ea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6b21a8;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Gradient overlay top -->
+  <rect width="1200" height="200" fill="url(#purpleGradient)" opacity="0.15"/>
+  
+  <!-- Logo/Brand area -->
+  <circle cx="600" cy="200" r="80" fill="#9333ea" opacity="0.2" filter="url(#glow)"/>
+  <circle cx="600" cy="200" r="60" fill="#111111" stroke="#9333ea" stroke-width="3"/>
+  
+  <!-- ROSO text -->
+  <text x="600" y="215" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#9333ea" text-anchor="middle" filter="url(#glow)">ROSO</text>
+  
+  <!-- eSports text -->
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle">eSports Organization</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="360" font-family="Arial, sans-serif" font-size="18" fill="#888888" text-anchor="middle">Professional Gaming Excellence</text>
+  
+  <!-- Feature boxes -->
+  <rect x="150" y="420" width="280" height="140" rx="10" fill="#111111" stroke="#9333ea" stroke-width="2" opacity="0.8"/>
+  <rect x="460" y="420" width="280" height="140" rx="10" fill="#111111" stroke="#9333ea" stroke-width="2" opacity="0.8"/>
+  <rect x="770" y="420" width="280" height="140" rx="10" fill="#111111" stroke="#9333ea" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Feature icons and text -->
+  <text x="290" y="460" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">🏆</text>
+  <text x="290" y="500" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#9333ea" text-anchor="middle">Team Management</text>
+  <text x="290" y="525" font-family="Arial, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Roster & Stats</text>
+  
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">⚔️</text>
+  <text x="600" y="500" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#9333ea" text-anchor="middle">Tournaments</text>
+  <text x="600" y="525" font-family="Arial, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Competitive Play</text>
+  
+  <text x="910" y="460" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">📊</text>
+  <text x="910" y="500" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#9333ea" text-anchor="middle">Analytics</text>
+  <text x="910" y="525" font-family="Arial, sans-serif" font-size="12" fill="#888888" text-anchor="middle">Performance Tracking</text>
+  
+  <!-- Accent lines -->
+  <line x1="100" y1="390" x2="1100" y2="390" stroke="#9333ea" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Bottom accent -->
+  <rect x="0" y="600" width="1200" height="30" fill="url(#purpleGradient)" opacity="0.3"/>
+</svg>
